@@ -1,0 +1,27 @@
+{
+  "name": "ifonly",
+  "version": "1.0.0",
+  "description": "ifonly is function that checks if your object have only and only specific properties you passed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test/*-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goschevski/ifonly"
+  },
+  "keywords": [
+    "if",
+    "only"
+  ],
+  "author": "Aleksandar Gosevski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goschevski/ifonly/issues"
+  },
+  "homepage": "https://github.com/goschevski/ifonly",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
+  }
+}

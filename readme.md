@@ -12,17 +12,17 @@ It works in both node and client-side applications.
 var obj;
 
 obj = { a: 'a'};
-console.log(ifonly(obj, ['a'])); // true because only 'a' property is present
+console.log(only(obj, ['a'])); // true because only 'a' property is present
 
 obj = { a: 'a', b: 'b', c: 'c' };
-console.log(ifonly(obj, ['a', 'b'])); // false because 'c' property is present
+console.log(only(obj, ['a', 'b'])); // false because 'c' property is present
 
 obj = { a: 'a', b: 'b', c: 'c' };
-console.log(ifonly(obj, ['a', 'b'], ['c'])); // true because 'c' property is ignored
+console.log(only(obj, ['a', 'b'], ['c'])); // true because 'c' property is ignored
 
 obj = { a: '', b: 'b', c: '' };
-console.log(ifonly(obj, ['b'])); // true because 'a' and 'c' properties are empty
+console.log(only(obj, ['b'])); // true because 'a' and 'c' properties are empty
 
 obj = { a: [], b: 'b', c: {} };
-console.log(ifonly(obj, ['b'])); // true because 'a' and 'c' properties are empty
+console.log(only(obj, ['b'])); // true because 'a' and 'c' properties are empty
 ```

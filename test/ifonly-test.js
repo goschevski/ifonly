@@ -13,6 +13,11 @@ describe('ifonly', function () {
         ifonly(obj, ['a', 'b']).should.equal(true);
     });
 
+    it('should return false', function () {
+        var obj = { a: 'a' };
+        ifonly(obj, ['a', 'b']).should.equal(false);
+    });
+
     it('should return true and ignore items', function () {
         var obj = { a: 'a', b: 'b', c: 'c' };
         ifonly(obj, ['a', 'b'], ['c']).should.equal(true);

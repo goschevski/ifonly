@@ -4,7 +4,7 @@
   "description": "ifonly is function that checks if your object have only and only specific properties you passed.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec test/*-test.js"
+    "test": "mocha -R spec test/*-test.js && eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/goschevski/ifonly",
   "devDependencies": {
     "chai": "^1.10.0",
+    "eslint": "^3.7.1",
     "mocha": "^2.1.0"
   }
 }

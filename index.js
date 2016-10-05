@@ -1,51 +1,38 @@
-;(function () {
+(function () {
     var only = function (obj, keys, ignore) {
-        var state, key;
-        var isEmpty = function (some) {
-            if (some == null || typeof some === 'undefined') {
-                return true;
+        var copy = Object.assign({}, obj);
+        var state = true;
+
+        // remove ignore items from copy
+        ignore && ignore.forEach(function (key) {
+            delete copy[key];
+        });
+
+        // remove empty items from copy
+        Object.keys(copy).forEach(function (key) {
+            if (copy[key] == null || typeof copy[key] === 'undefined') {
+                delete copy[key];
             }
 
-            if (some instanceof Array || typeof some === 'string') {
-                return some.length === 0;
+            if ((copy[key] instanceof Array || typeof copy[key] === 'string') && copy[key].length === 0) {
+                delete copy[key];
             }
 
-            for (var k in some) {
-                if (some.hasOwnProperty(k)) {
-                    return false;
-                }
+            if (typeof copy[key] === 'object' && copy[key] !== null && !(copy[key] instanceof Array) && Object.keys(copy[key].length === 0)) {
+                delete copy[key];
+
             }
+        });
 
-            return true;
-        };
-        ignore = ignore || [];
+        keys.forEach(function (value) {
+            state = Object.keys(copy).indexOf(value) !== -1;
 
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                // if current key is in ignore list
-                if (ignore.indexOf(key) !== -1) {
-                    continue;
-                }
-
-                // if there is other key in obj which is not empty
-                if (keys.indexOf(key) === -1 && !isEmpty(obj[key])) {
-                    state = false;
-                    break;
-                }
-
-                // if current key is required and not empty
-                if (keys.indexOf(key) !== -1 && !isEmpty(obj[key])) {
-                    state = true;
-                }
-
-                // if current key is required but it's empty
-                if (keys.indexOf(key) !== -1 && isEmpty(obj[key])) {
-                    state = false;
-                }
+            if (state) {
+                delete copy[value];
             }
-        }
+        });
 
-        return state;
+        return state && (Object.keys(copy).length === 0);
     };
 
     if (typeof module !== 'undefined' && module.exports) {

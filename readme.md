@@ -17,6 +17,9 @@ console.log(only(obj, ['a'])); // true because only 'a' property is present
 obj = { a: 'a', b: 'b', c: 'c' };
 console.log(only(obj, ['a', 'b'])); // false because 'c' property is present
 
+obj = { a: 'a' };
+console.log(ifonly(obj, ['a', 'b'])); // false because 'b' does not exist
+
 obj = { a: 'a', b: 'b', c: 'c' };
 console.log(only(obj, ['a', 'b'], ['c'])); // true because 'c' property is ignored
 

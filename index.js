@@ -25,7 +25,7 @@
         });
 
         keys.forEach(function (value) {
-            state = Object.keys(copy).indexOf(value) !== -1;
+            state = state && Object.keys(copy).indexOf(value) !== -1;
 
             if (state) {
                 delete copy[value];

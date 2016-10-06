@@ -23,6 +23,11 @@ describe('ifonly', function () {
         ifonly(obj, ['a', 'b'], ['c']).should.equal(true);
     });
 
+    it('should return false', function () {
+        var obj = { a: 'a' };
+        ifonly(obj, ['b', 'a']).should.equal(false);
+    });
+
     it('should return true and ignore empty strings', function () {
         var obj = { a: '', b: 'b', c: '' };
         ifonly(obj, ['b']).should.equal(true);

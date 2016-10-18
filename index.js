@@ -1,6 +1,22 @@
 (function () {
+    var clone = function (obj) {
+        if (obj == null || typeof obj != 'object') {
+            return obj;
+        }
+
+        var copy = {};
+
+        for (var attr in obj) {
+            if (obj.hasOwnProperty(attr)) {
+                copy[attr] = obj[attr];
+            }
+        }
+
+        return copy;
+    };
+
     var only = function (obj, keys, ignore) {
-        var copy = Object.assign({}, obj);
+        var copy = clone(obj);
         var state = true;
 
         // remove ignore items from copy
